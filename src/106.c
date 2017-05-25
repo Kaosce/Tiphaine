@@ -5,7 +5,7 @@
 ** Login   <TiphaineLaurent@epitech.net>
 ** 
 ** Started on  Mon Feb  6 10:28:19 2017 Tiphaine LAURENT
-** Last update Thu May 25 15:30:44 2017 Tiphaine LAURENT
+** Last update Thu May 25 15:47:49 2017 Tiphaine LAURENT
 */
 
 #include "b106.h"
@@ -66,9 +66,23 @@ int		b106(int ac, char **av)
   return (0);
 }
 
+int		disp_help()
+{
+  printf("USAGE\n");
+  printf("\t\t./106bombyx n [k|i0 i1]\n");
+  printf("DESCRIPTION\n");
+  printf("\t\tn\tnumber of first generation individuals\n");
+  printf("\t\tk\tgrowth rate from 1 to 4\n");
+  printf("\t\ti0\tinitial generation (included)\n");
+  printf("\t\ti1\tfinal generation (included)\n");
+  return (1);
+}
+
 int		main(int ac, char **av)
 {
-  if (ac > 1)
-    b106(ac, av);
-  return (0);
+  if (ac > 2 && ac < 4)
+    return (b106(ac, av));
+  else
+    return (disp_help());
+  return (84);
 }
